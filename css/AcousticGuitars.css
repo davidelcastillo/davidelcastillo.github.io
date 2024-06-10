@@ -1,0 +1,585 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+* {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+html {
+    height: 100%;
+    overflow-x: hidden;
+
+}
+
+.navbarContenedorAbajo {
+    padding: 0;
+    color: white;
+    background-color: rgb(7, 96, 108);
+}
+
+.navbarContenedorArriba {
+    background-color: rgb(27, 27, 27);
+    padding: 0;
+    margin: 0;
+    height: 10vh;
+
+    /* background-color: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
+}
+
+.navbarContenedorArriba a {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: 1s;
+}
+
+.navbarContenedorArriba a:hover {
+    color: rgb(138, 76, 76);
+}
+
+.contenedorDivImagenNavbar {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+}
+
+.logoNavbar {
+    height: auto;
+    width: 6vw;
+    margin: 5px;
+}
+
+.contenedorLinksNavbar {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contenedorInfoNavbar {
+    height: 10vh;
+
+}
+
+.buttonNavbarRight {
+    color: white;
+    font-size: 2rem;
+    transition: 1s;
+}
+
+.buttonNavbarRight:hover {
+    color: rgb(125, 0, 27);
+}
+
+
+form {
+    width: 30%;
+}
+
+.inputSearchNavbar {
+    background-color: rgb(36, 36, 36);
+    border-color: white;
+    border-radius: 2cm;
+    transition: 1s;
+    color: black;
+    height: 40px;
+    margin-top: 2%;
+}
+
+.inputSearchNavbar:hover {
+    background-color: rgb(161, 160, 160);
+
+}
+
+
+.formNavbar {
+    margin-right: 5%;
+}
+
+body {
+    background-color: black;
+    /* position: relative;
+    padding-bottom: 3em;
+    */
+    display: flex;
+    flex-direction: column;
+    min-height: 150%;
+    background-size:48%;
+}
+
+/* .main_section {
+    width: 100vw;
+    height: 80vh;
+    
+} */
+
+.main_section .titleContainer {
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/acoustic-guitars-background.jpg");
+    background-size: cover;
+    background-position: center 60%;
+    background-repeat: no-repeat;
+    transition: 1s;
+}
+
+.main_section .titleContainer:hover {
+    height: 40vw;
+
+}
+
+.titleContainer h1 {
+    text-transform: uppercase;
+    font-size: 5rem;
+    color: white;
+    font-weight: 200;
+    transition: 1s;
+}
+
+.titleContainer h1:hover {
+    transform: scale(200%);
+}
+
+
+.cardsContainer {
+    height: fit-content;
+    /* padding-top: %;
+    padding-left: 5%;
+    padding-right: 5%; */
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgb(0, 0, 0) 47%, rgb(66, 21, 0) 100%);
+}
+
+
+.main_section .card {
+    width: 10%;
+    height: fit-content;
+    border-radius: 15px;
+    background: #494949d4;
+    /* box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60); */
+    /* flex: 1 1 200px; */
+    flex: 0 0 20%;
+    /* margin-bottom: 2%; */
+    margin-top: 4%;
+    margin-bottom: 4%;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s;
+}
+
+.card:hover {
+    transform: scale(110%);
+}
+
+.card .guitarImgContainer {
+    width: auto;
+}
+
+.card .logoGibsonCard {
+    display: flex;
+    justify-content: left;
+}
+
+.logoGibsonImgCard {
+    width: 35%;
+    height: auto;
+}
+
+.card .guitarImgContainer {
+    width: 100%;
+    height: auto;
+}
+
+.card .conteinerDave {
+    width: 80%;
+    height: auto;
+}
+
+.productDescription {
+    padding-top: 5%;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.productPrice {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+
+}
+
+button {
+    width: 9em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-transform: uppercase;
+    /* box-shadow: 6px 6px 12px #c5c5c5,
+        -6px -6px 12px #ffffff; */
+}
+
+button::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #d8a60f 0%, #f9f047 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+button:hover::before {
+    width: 9em;
+}
+
+
+
+
+
+footer {
+    width: 45w;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+    background: black;
+    /* position: absolute;
+    padding: 1em 0; */
+    margin-top: auto;
+}
+
+footer img {
+    height: 8%;
+    width: 8%;
+}
+
+footer .footerImageContainer {
+    text-align: center;
+    width: 100vw !important;
+    height: auto;
+    max-width: 100%;
+    max-height: fit-content !important;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
+    /*padding-bottom: 4.6%;*/
+    padding-left: 5%;
+}
+
+.footerInfoContainer {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    font-size: 2rem;
+    position: relative;
+}
+
+.footerEtiquetasA a {
+    text-decoration: none;
+    font-size: 1.2vw;
+    color: white;
+    width: fit-content;
+    text-align: justify;
+    letter-spacing: 1.8px;
+    line-height: 2.8vh;
+    vertical-align: middle;
+}
+
+.containerLogos {
+    color: white;
+    align-items: center;
+
+}
+
+.containerLogos i {
+    font-size: 1.5vw;
+}
+
+.containerLogos a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+    font-size: 1.5vw; 
+}
+
+.containerLogos a:hover {
+    color: #626161;
+}
+
+
+.footerMail {
+    color: white;
+    align-items: center;
+}
+
+.footerMail i {
+    font-size: 1.5vw;
+}
+
+/* PANTALLAS GRANDES ----------------------------------------------------------------------------------------------------------*/
+
+
+@media (max-width: 1200px) {
+
+    footer {
+        width: 45w;
+        height: 25vh;
+    }
+    
+    .cardsContainer{
+        background: transparent;
+        
+    }
+
+    .main_section .card {
+        width: 10%;
+        height: fit-content;
+        border-radius: 15px;
+        background: #494949d4;
+        flex: 0 0 25%;
+        margin: 2%;
+        padding: 2%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 1s;
+    }
+
+    body{
+    background: linear-gradient(0deg, rgb(20, 17, 1) 27%, rgb(69, 57, 2) 100%);
+    height: 100vh;
+    }
+}
+
+/* PANTALLAS MEDIANAS ----------------------------------------------------------------------------------------------------------*/
+
+@media (max-width: 991px) {
+    .navbarContenedorAbajo {
+        padding: 0;
+        color: white;
+        background-color: rgb(125, 0, 27);
+    } 
+
+    .contenedorLinksNavbar {
+        background-color: rgb(27, 27, 27);
+        position: absolute;
+        z-index: 1;
+        width: 100vw;
+        height: 50vh;
+    } 
+
+    /* .formNavbar input, i{
+        display: none;
+    }  */
+
+    .menuHamburguesaButton{
+        transition: 1s;
+        background-color: rgb(90, 90, 90);
+    }
+
+    .menuHamburguesaButton:hover{
+        border: none;
+        background-color: white;
+        /* border: ; */
+
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .main_section .titleContainer {
+        height: 19vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/acoustic-guitars-background.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        transition: 1s;
+    }
+    
+    .main_section .titleContainer:hover {
+        height: 20vw;
+    
+    }
+    
+    .titleContainer h1 {
+        text-transform: uppercase;
+        font-size: 3rem;
+        color: white;
+        font-weight: 100;
+        transition: 1s;
+    }
+    
+    .titleContainer h1:hover {
+        transform: scale(200%);
+    }
+
+    body {
+        background-image: url(../img/background_mobile.png);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .cardsContainer {
+    height: fit-content;
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    }
+
+
+    .main_section .card {
+    width: 400%;
+    /* box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60); */
+    /* flex: 1 1 200px; */
+    flex: 0 0 70%; 
+    /* margin-bottom: 2%; */
+    margin: 10%;
+    padding: 2%; 
+    }
+
+    .card:hover {
+    transform: scale(110%);
+    }   
+
+    .card .guitarImgContainer {
+        width: 190vw;
+    }
+    
+    
+    .logoGibsonImgCard {
+        width: 60%;
+    }
+    
+    .card .guitarImgContainer {
+        width: 180%;
+        height: auto;
+    }
+    
+    .productDescription {
+        padding-top: 5%;
+        color: white;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    .productPrice {
+        color: white;
+        font-size: 1.1rem;
+        text-align: center;
+    
+    }
+    
+    button {
+        width: 6em;
+        height: 3em;
+        border-radius: 30em;
+        font-size: 15px;
+        font-family: inherit;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        text-transform: uppercase;
+        /* box-shadow: 6px 6px 12px #c5c5c5,
+            -6px -6px 12px #ffffff; */
+    }
+    
+    button::before {
+        content: '';
+        width: 0;
+        height: 3em;
+        border-radius: 30em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(to right, #d8a60f 0%, #f9f047 100%);
+        transition: .5s ease;
+        display: block;
+        z-index: -1;
+    }
+    
+    button:hover::before {
+        width: 9em;
+    }
+
+
+
+
+    footer {
+        height: 12vh;
+    }
+
+    .footerInfoContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 6.2vw;
+    }
+
+    .containerLogos i {
+        margin: 0;
+        font-size: 2vh;
+    }
+
+    .footerMail i {
+        margin: 0;
+        font-size: 2vh;
+    }
+
+    .footerEtiquetasA a {
+        font-size: 2.5vw;
+        margin: 0;
+    }
+
+    footer .footerImageContainer {
+        padding-left: 0;
+        padding-bottom: 2%;
+    }
+
+    .Gibsonfooter img {
+        height: 4vh;
+        width: 12vw;
+    }
+
+}
+
+@media (max-width: 580px) {
+    .logoNavbar {
+        width: 60%;
+    }
+}
