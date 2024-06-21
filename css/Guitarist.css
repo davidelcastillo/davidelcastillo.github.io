@@ -297,7 +297,7 @@ h1:focus:after {
     width: 89vw;
     height:78vh;
     padding: 4%;
-    border-radius: 20%;
+    border-radius: 8vw;
     transition: 1s;
 }
 

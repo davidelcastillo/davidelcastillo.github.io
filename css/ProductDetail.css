@@ -287,16 +287,18 @@ h2 {
     color: black;
     border: none;
     cursor: pointer;
-    margin-left: 3%;
     font-size: 3.2vh;
     font-weight: bold;
-    transition: 0.9s;
+    transition: 1s;
+    /* margin-left: 4vw; */
+    justify-self: right;
 }
 
 button:hover {
-    width: 15vw;
     height: 4.5vw;
-    margin-left: 2%;
+    font-size: 3.6vh;
+    background-color: rgb(105, 103, 103);
+    color: #ddd;
 }
 
 .gibson_logo {
