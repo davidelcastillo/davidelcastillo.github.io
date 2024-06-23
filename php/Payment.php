@@ -69,10 +69,10 @@ if (isset($_POST["order_pay"])) {
     function initPayPalButton() {
         paypal.Buttons({
             style: {
-                shape: 'rect',
-                color: 'gold',
+                shape: 'pill',
+                color: 'silver',
                 layout: 'vertical',
-                label: 'paypal',
+                label: 'pay',
             },
 
             createOrder: function(data, actions) {

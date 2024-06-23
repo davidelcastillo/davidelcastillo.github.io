@@ -1,5 +1,8 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 session_start();
 
 include("../server/connection.php");
@@ -52,13 +55,43 @@ if (isset($_POST["register"])) {
                 $_SESSION['user_name'] = $name;
                 $_SESSION['user_phone'] = $phone;
                 $_SESSION['logged_in'] = true;
-    
+
+                // send confirmation email
+                $user_email = $_SESSION['user_email'];
+                $message = 'Your Account has been successfully created. Lets Rock!!' ;
+
+                require '../phpmailer/src/Exception.php';
+                require '../phpmailer/src/PHPMailer.php';
+                require '../phpmailer/src/SMTP.php';
+
+                $mail = new PHPMailer(true);
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'gibsonlenguajes@gmail.com';
+                $mail->Password = 'kqtkgdodkivkibup';
+                $mail->SMTPSecure = 'ssl';
+                $mail->Port = 465;
+
+                $mail->setFrom('gibsonlenguajes@gmail.com');
+
+                $mail->addAddress($user_email);
+
+                $mail->isHTML(true);
+
+                $mail->Subject = 'Welcome to Gibson';
+
+                $mail->Body = $message;
+
+                $mail->send();
+
                 header('location: Account.php?register_succes=You register succesfully');
             }else{
     
                 header('location: Register.php?error=Cold´t create account');
     
             }
+
         } 
     } 
 }

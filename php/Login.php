@@ -80,30 +80,32 @@ if (isset($_POST['login_btn'])) {
                 Sign In
             </h1>
         </div>
-        <div class="wrapper">
-            <form method="POST" action="Login.php" class="form">
-                <div class="inpt-container" >
-                    <div class="form-group" style="margin:0;">
-                        <p>Email</p>
-                        <input  class="inp-main" type="email" name="email">
-                        <i class="input-icon uil uil-at"></i>
+        <section class="sign-section">
+            <div class="wrapper">
+                <form method="POST" action="Login.php" class="form">
+                    <div class="inpt-container" >
+                        <div class="form-group" style="margin:0;">
+                            <p>Email</p>
+                            <input  class="inp-main" type="email" name="email">
+                            <i class="input-icon uil uil-at"></i>
+                        </div>
+                        <div class="form-group">
+                            <p>Password</p>
+                            <input class="inp-main" type="password" name="password">
+                            <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <input class="btn submit" type="submit" name="login_btn" value="Sing In" />
+                        <p style="color:red"><?php if(isset($_GET['error'])){echo $_GET['error'];} ?></p>
+                        <hr>
                     </div>
-                    <div class="form-group">
-                        <p>Password</p>
-                        <input class="inp-main" type="password" name="password">
-                        <i class="input-icon uil uil-lock-alt"></i>
-                    </div>
-                    <input class="btn submit" type="submit" name="login_btn" value="Sing In" />
-                    <p style="color:red"><?php if(isset($_GET['error'])){echo $_GET['error'];} ?></p>
-                    <hr>
-                </div>
-                <p>Create an Account</p>
-                <br>
-                <a href="./Register.php">
-                    <input class="btn submit" type="submit" name="go-register" value="Sign Up" />
-                </a>
-            </form> 
-        </div>
+                    <p>Create an Account</p>
+                    <br>
+                    <a href="./Register.php">
+                        <input class="btn submit" type="submit" name="go-register" value="Sign Up" />
+                    </a>
+                </form> 
+            </div>
+        </section>
     </section>
 <?php  
     include('../layouts/footer-php.php');

@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 include('../server/get_featured_products.php');
 
 if(isset($_GET['product_id'])) {
@@ -89,9 +91,13 @@ if(isset($_GET['product_id'])) {
                                 <input type="hidden" name="product_image" value="<?php echo $row['product_image_stand']; ?>" />
                                 <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>" />
                                 <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>" />
-                                <button type="submit" name="add_to_cart">
-                                    Buy
-                                </button>
+                                <?php if(isset($row['product_stock']) && $row['product_stock'] >= 1 ) { ?>
+                                    <button type="submit" name="add_to_cart">
+                                        Buy
+                                    </button>
+                                <?php } else { ?>
+                                    <h3 style="color:rgb(99, 6, 6)">Out Of Stock</h3>
+                                <?php } ?>
                             </form>
                         </div>
                         <img class="gibson_logo" src="../img/logoGibson.png" alt="">

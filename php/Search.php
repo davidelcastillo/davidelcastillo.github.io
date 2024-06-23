@@ -62,21 +62,21 @@ if(isset($_POST['search'])) {
             <h1>Search : </h1>
             <p><?php echo $_POST['search']?></p>
         </div>
-            <div class="cardsContainer">
+        <div class="cardsContainer">
             <?php while($row= $result->fetch_assoc()) { ?>
-                    <div class="card"> 
-                        <div class="logoGibsonCard">
-                            <img class="logoGibsonImgCard" src="../img/logoGibson.png" alt="Logo de Gibson">
-                        </div>
-                        <img class="guitarImgContainer" src="../img/<?php echo $row['product_image_stand']?>" alt="Guitar EXPL Black">
-                        <p class="productName"><?php echo $row['product_name_shrt']?> </p>
-                        <p class="productPrice">US$<?php echo $row['product_price']?></p>
-                        <a href="<?php echo "ProductDestail.php?product_id=". $row['product_id'];?>">
-                            <button class="buy-btn"> Buy now </button>
-                        </a>
+                <div class="card"> 
+                    <div class="logoGibsonCard">
+                        <img class="logoGibsonImgCard" src="../img/logoGibson.png" alt="Logo de Gibson">
                     </div>
+                    <img class="guitarImgContainer" src="../img/<?php echo $row['product_image_stand']?>" alt="Guitar EXPL Black">
+                    <p class="productName"><?php echo $row['product_name_shrt']?> </p>
+                    <p class="productPrice">US$<?php echo $row['product_price']?></p>
+                    <a href="<?php echo "ProductDestail.php?product_id=". $row['product_id'];?>">
+                        <button class="buy-btn"> Buy now </button>
+                    </a>
+                </div>
             <?php }?>
-            </div>
+        </div>
     </section>
 <?php  
     include('../layouts/footer-php.php');

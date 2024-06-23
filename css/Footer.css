@@ -1,3 +1,5 @@
+
+
 footer {
     width: 45w;
     height: 25vh;
@@ -28,7 +30,6 @@ footer .footerImageContainer {
     align-items: center;
     padding-top: 2%;
     /*padding-bottom: 4.6%;*/
-    padding-left: 5%;
 }
 
 .footerInfoContainer {
@@ -37,6 +38,11 @@ footer .footerImageContainer {
     justify-content: space-around;
     font-size: 2rem;
     position: relative;
+    flex-direction: row;
+}
+
+.footerEtiquetasA {
+    margin-right: 5vw;
 }
 
 .footerEtiquetasA a {
@@ -48,6 +54,7 @@ footer .footerImageContainer {
     letter-spacing: 1.8px;
     line-height: 2.8vh;
     vertical-align: middle;
+    margin-right: 1.5vw;
 }
 
 .containerLogos {
@@ -83,7 +90,7 @@ footer .footerImageContainer {
 
 @media (max-width: 768px) {
     footer {
-        height: 12vh;
+        height: fit-content;
     }
 
     .footerInfoContainer {

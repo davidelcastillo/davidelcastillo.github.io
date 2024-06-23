@@ -22,6 +22,8 @@ if(isset($_POST['Place_order']) ) {
     $user_id = $_SESSION['user_id'];
     $order_date = date("Y-m-d H:i:s");
 
+    $_SESSION['user_email'] = $email;
+
     $stmt = $conn->prepare("INSERT INTO orders (order_cost, order_status,user_id,user_phone,user_city,user_address,order_date)
                     VALUES (?,?,?,?,?,?,?);");
 
@@ -70,7 +72,6 @@ if(isset($_POST['Place_order']) ) {
     header('location: ../php/Payment.php?order_status=order place successfully');
 
 }
-
 
 
 ?>

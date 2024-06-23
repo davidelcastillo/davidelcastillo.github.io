@@ -68,6 +68,11 @@ body{
 }  */
 
   /* form animation starts */
+.main_section {
+    height: fit-content;
+    background-color: black;
+}
+
 
 .Shopping_section {
     margin: 1%;
@@ -198,11 +203,11 @@ th {
     font-size: 2.3vw;
 }
 
-.mb-0 {
+.mb-4 {
     transition: 1s;
 }
 
-.mb-0:hover {
+.mb-4:hover {
     height: 3.7vw;
     font-size: 2.5vw;
 }
@@ -238,212 +243,143 @@ form{
 }
 
 
+@media (max-width: 1200px) {
 
-/* FOOTER*/
-
-footer{
-    width: 45w;
-    height: 25vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: space-around;
-    background: black;
-    /* position: absolute;
-    padding: 1em 0; */
-    margin-top: auto;
+    body{
+        background-color: black
+    }
 }
 
-footer img{
-    height: 8%;
-    width: 8%;
-}
+/* PANTALLAS MEDIANAS ----------------------------------------------------------------------------------------------------------*/
 
-footer .footerImageContainer{
-    text-align: center;
-    width: 100vw !important;
-    height:auto;
-    max-width:100%;
-    max-height: fit-content !important;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 2%;
-    padding-left: 5%;
-}
-
-.footerInfoContainer{
-    width: 100vw;
-    display: flex;
-    justify-content: space-around;
-    font-size: 2rem;
-    position: relative;
-}
-
-.footerEtiquetasA a{
-    text-decoration: none;
-    font-size: 1.2vw;
-    color: white;
-    width: fit-content;
-    text-align: justify;
-    letter-spacing: 1.8px;
-    line-height: 2.8vh;
-    vertical-align: middle;
-}
-
-.containerLogos{
-    color: white;
-    align-items: center;
-}
-
-.containerLogos i {
-    font-size: 1.5vw;
-}
-
-.containerLogos a {
-    color: white;
-    text-decoration: none;
-    margin: 0 5px;
-    font-size: 1.5vw; 
-}
-
-.containerLogos a:hover {
-    color: #626161;
-}
-
-.footerMail{
-    color: white;
-    align-items: center;
-}
-
-.footerMail i {
-    font-size: 1.5vw;
-}
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 4.8vh;
-        font-weight: 500;
-        margin-top: 5%;
+    
+    .main_section .title {
+        height: 19vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/cart_bg.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        transition: 1s;
+    }
+    
+    .main_section .title:hover {
+        height: 19vw;
+    
+    }
+    
+    .title h1 {
+        text-transform: uppercase;
+        font-size: 3rem;
+        color: white;
+        font-weight: 100;
+        transition: 1s;
+    }
+    
+    .title h1:hover {
+        transform: scale(100%);
     }
 
     body {
-        min-height: 114%;
-        background-size:120%;
+        background-color: black;
+        /* position: relative;
+        padding-bottom: 3em;
+        */
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
     }
 
-    .form {
-        width: 89vw;
+
+    .Shopping_section {
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-top: 18vw;
+        margin-bottom: 10vw;
     }
 
-    .name:hover {
-        width: 330px;
+    .table_conteiner {
+        border-radius: 1vw;
+        width: 90vw;
+        background-color: black !important; 
     }
 
-    .email:hover {
-        width: 330px;
+    table {
+        border-radius: 10%;
+        background-color: transparent; 
     }
 
-    .message:hover {
-        width: 330px;
+    .table_title {
+        font-size: 3.5vw;
+    }
+
+    .product_conteiner{
+        font-size: 2.4vw;
+    }
+
+    .product_conteiner img {
+        width: 25vw;
+        transition: 1s;
+    } 
+
+    .product_conteiner img:hover {
+        width: 25vw;
+    
+    } 
+
+    .mb-0{
+        font-size: 2.4vw;
     }
     
-    footer {
-        height: 24vh;
+    .Total_conteiner {
+        background-color: rgb(34, 34, 34)  !important; 
+        border-radius: 1vw;
+        width: 70vw;
+        height: 90vw;
     }
 
-    .footerInfoContainer {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-size: 6.2vw;
+    .mb-3 {
+        width: 70vw;
+        font-size: 5vw;
     }
 
-    .containerLogos i {
-        margin: 0;
-        font-size: 2vh;
+    .mb-3:hover {
+        width: 70vw;
+        font-size: 5vw;
     }
 
-    .footerMail i {
-        margin: 0;
-        font-size: 2vh;
+    .mb-4 {
+        font-size: 4.5vw;
     }
 
-    .footerEtiquetasA a{
-        font-size: 2.5vw;
-        margin: 0;
+    .mb-1 {
+        width: 70vw;
+        font-size: 5vw;
     }
 
-    footer .footerImageContainer {
-        padding-left: 0;
-        padding-bottom: 2%;
-    }
-
-    .Gibsonfooter img {
-        height: 4vh;
-        width: 12vw;
-    }
-
-}
-
-@media (max-width: 991px) {
-    .navbarContenedorAbajo {
-        padding: 0;
-        color: white;
-        background-color: rgb(125, 0, 27);
-    }
-
-    .contenedorLinksNavbar {
-        background-color: rgb(27, 27, 27);
-        position: absolute;
-        z-index: 5;
-        width: 100vw;
-        height: 50vh;
-    }
-
-    /* .formNavbar input, i{
-        display: none;
-    } */
-
-    .menuHamburguesaButton{
+    .checkout-container .checkout-btn{
+        font-size: 5vw;
         transition: 1s;
-        background-color: rgb(90, 90, 90);
+        color: white;
+        justify-self: center;
+        align-self: center;
+        border-radius: 1vw;
+        border-color: transparent;
+    }
+    
+    .checkout-container .checkout-btn:hover {
+        background-color: rgb(155, 151, 151);
+        height: 4.9vw;
+        font-size: 8vw;
+        color: #2a2929;
     }
 
-    .menuHamburguesaButton:hover{
-        border: none;
-        background-color: white;
-        /* border: ; */
-
-    }
-
-
-}
-
-@media (max-width: 580px) {
-    .logoNavbar{
-        width: 60%;
-    }
-}
-
-.contenedorLogoNavbar{
-    background-color: black;
-    border-radius: 50%;
-    width: 4%;
-}
-
-.navbarContainer1{
-    background-color: black;
-    margin: 0;
-    padding: 0;
-}
-
-.navbarContainer2{
-   background-color: black;
-}
-
-.contenedorLogoNavbar img{
-    width: 100%;
-    height: auto;
 }

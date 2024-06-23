@@ -65,13 +65,13 @@
             </h1>
         </div>
         <div class="wrapper">
-            <form class="form">
-              <input type="text" class="name formEntry" placeholder="Name" />
-              <input type="text" class="email formEntry" placeholder="Email"/>
-              <textarea class="message formEntry" placeholder="Message"></textarea>
+            <form class="form" method="POST" action="../server/send_email.php" >
+              <input type="text" name="subject" class="name formEntry" placeholder="Subject" />
+              <input type="text" name="email" class="email formEntry" placeholder="Email"/>
+              <textarea name="message" class="message formEntry" placeholder="Message"></textarea>
               <input type="checkbox" class="termsConditions" value="Term">
               <label style="color: rgb(255, 254, 254)" for="terms"> I Accept the <a href="./Terms.html"><span style="color: #b37f20; text-decoration: underline; text-decoration-color: #b37f20;">Terms of Use</span></a> & <a href="./Policy.html"><span style="color: #b37f20; text-decoration: underline; text-decoration-color: #b37f20;">Privacy Policy</span></a>.</label><br>
-              <button class="submit formEntry" onclick="thanks()">Submit</button>
+              <button class="submit formEntry" name="send" onclick="thanks()">Submit</button>
             </form> 
         </div>
     </section>

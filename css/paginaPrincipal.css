@@ -374,7 +374,7 @@ footer .footerImageContainer {
     }
     
     .main_section .title:hover {
-        height: 20vw;
+        height: 19vw;
     
     }
     
@@ -387,7 +387,7 @@ footer .footerImageContainer {
     }
     
     .title h1:hover {
-        transform: scale(200%);
+        transform: scale(100%);
     }
     
     

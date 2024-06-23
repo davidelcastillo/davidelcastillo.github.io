@@ -58,7 +58,7 @@ body{
 
 
 .cardsContainer {
-    height: 80vw;
+    height: fit-content;
     padding-top: 5%;
     padding-left: 5%;
     padding-right: 5%;
@@ -87,6 +87,11 @@ body{
     align-items: center;
     justify-content: center;
     transition: 1s;
+}
+
+.main_section {
+    height: fit-content;
+    background-color: black;
 }
 
 .card:hover {
@@ -159,6 +164,38 @@ body{
     width: 9em;
 }
 
+.pagination\:container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.pagination > li > a
+{
+    background-color: transparent;
+    color: #818082;
+    border: 0;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #fffefe;
+    background-color: #242424;
+    border: 0;
+}
+
+.pagination > .disable > a
+{
+    color: rgb(62, 52, 52);
+    background-color: black;
+    border-color: black;
+    border: 0;
+}
+
 
 
 
@@ -168,15 +205,9 @@ body{
 
 
 @media (max-width: 1200px) {
-
-    footer {
-        width: 45w;
-        height: 25vh;
-    }
     
     .cardsContainer{
-        background: transparent;
-        
+        background: linear-gradient(0deg, rgb(0, 0, 0) 65%, rgb(20, 16, 0) 100%);
     }
 
     .main_section .card {
@@ -194,8 +225,7 @@ body{
     }
 
     body{
-    background: linear-gradient(0deg, rgb(20, 17, 1) 27%, rgb(69, 57, 2) 100%);
-    height: 100vh;
+        background-color: black
     }
 }
 
@@ -217,7 +247,7 @@ body{
     }
     
     .main_section .titleContainer:hover {
-        height: 20vw;
+        height: 19vw;
     
     }
     
@@ -230,11 +260,10 @@ body{
     }
     
     .titleContainer h1:hover {
-        transform: scale(200%);
+        transform: scale(100%);
     }
 
     body {
-        background-image: url(../img/background_mobile.png);
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
@@ -242,13 +271,20 @@ body{
     }
 
     .cardsContainer {
-    height: fit-content;
-    display: flex;
-    width: 100vw;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 0;
+        height: fit-content;
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 0;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgb(0, 0, 0) 65%, rgb(20, 16, 0) 100%);
+    }
+
+    .main_section {
+        height: fit-content;
+        background-color: black;
     }
 
 
@@ -267,17 +303,12 @@ body{
     }   
 
     .card .guitarImgContainer {
-        width: 190vw;
+        width: 70vw;
     }
     
     
     .logoGibsonImgCard {
         width: 60%;
-    }
-    
-    .card .guitarImgContainer {
-        width: 180%;
-        height: auto;
     }
     
     .productDescription {
@@ -294,7 +325,7 @@ body{
     
     }
     
-    button {
+    .buy-btn {
         width: 6em;
         height: 3em;
         border-radius: 30em;
@@ -309,7 +340,7 @@ body{
             -6px -6px 12px #ffffff; */
     }
     
-    button::before {
+    .buy-btn::before {
         content: '';
         width: 0;
         height: 3em;
@@ -323,7 +354,11 @@ body{
         z-index: -1;
     }
     
-    button:hover::before {
+    .buy-btn:hover::before {
         width: 9em;
+    }
+
+    .pagination\:container {
+        margin-bottom: 4vw;
     }
 }

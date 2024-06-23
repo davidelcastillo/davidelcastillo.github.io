@@ -67,15 +67,18 @@ if (isset($_POST['add_to_cart'])){
 
 function calculateTotalCart() {
   $total = 0;
+  $total_quantity = 0;
 
   foreach($_SESSION['cart'] as $key => $value) {
     $product = $_SESSION['cart'][$key];
     $price = $product['product_price'];
 
     $total = $total + $price;
+    $total_quantity = $total_quantity + 1;
   }
 
   $_SESSION['total'] = $total;
+  $_SESSION['quantity'] = $total_quantity;
 }
 
 ?>
@@ -127,7 +130,7 @@ function calculateTotalCart() {
                     <div class="product_conteiner">
                       <img src="../img/<?php echo $value['product_image'];?>" class=" img-1"  alt="Product">
                       <div class="product_detail">
-                        <p class="mb-1"><?php echo $value['product_name'];?></p>
+                        <p class="mb-5"><?php echo $value['product_name'];?></p>
                         <br>
                         <form method="POST" action="cart.php">
                           <input type="hidden" name="product_id" value="<?php echo $value['product_id']; ?>"/>
@@ -139,7 +142,7 @@ function calculateTotalCart() {
                           
                   <td style="align-items: center;">
                     <div class="Subtotal_conteiner" >
-                      <p class="mb-0"><?php echo $value['product_price'];?></p>
+                      <p class="mb-0">$ <?php echo $value['product_price'];?></p>
                     </div>
                   </td>
                 </tr>
@@ -152,18 +155,18 @@ function calculateTotalCart() {
           <div class="Total_conteiner";">
             <div class="Sub_conteiner">
               <p class="mb-3">Subtotal</p>
-              <p class="mb-0">$ <?php echo $_SESSION['total']; ?></p>
+              <p class="mb-4">$ <?php echo $_SESSION['total']; ?></p>
             </div>
             
             <div class="Sub_conteiner">
               <p class="mb-3">Shipping</p>
-              <p class="mb-0">$4</p>
+              <p class="mb-4">$4</p>
               <hr>
             </div>
 
             <div class="Total">
               <p class="mb-1">Total (tax included)</p>
-              <p class="mb-0">$<?php echo $_SESSION['total_tax']; ?></p>
+              <p class="mb-4">$<?php echo $_SESSION['total_tax']; ?></p>
             </div>
             
             <div class="checkout-container">

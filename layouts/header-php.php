@@ -1,3 +1,4 @@
+
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary navbarContenedorAbajo">
         <div class="container-fluid navbarContenedorArriba">
@@ -34,7 +35,13 @@
                     <input class="form-control me-2 inputSearchNavbar" type="search" aria-label="Search" name="search">
                     <button class="search-btn" type="submit"><i class="bi bi-search buttonNavbarRight"></i></button>
                     <a href="./Login.php" class="btn" type="submit"><i class="bi bi-person buttonNavbarRight"></i> </a>
-                    <a class="btn" type="submit" href="./Cart.php" ><i class="bi bi-cart buttonNavbarRight"></i>  </a>
+                    <div class="cart-container">
+                    <a class="btn cart-btn" type="submit" href="./Cart.php" ><i class="bi bi-cart buttonNavbarRight"> </i>
+                        <?php if(isset($_SESSION['quantity']) && $_SESSION['quantity'] != 0) { ?> 
+                            <span class="cart-quantity" ><?php echo $_SESSION['quantity']; ?></span> 
+                        <?php }?>
+                      </a>
+                    </div>
                 </form>
             </div>
         </div>

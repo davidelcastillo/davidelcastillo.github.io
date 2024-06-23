@@ -138,5 +138,105 @@ p {
     color: #2a2929;
 }
 
+@media (max-width: 1200px) {
+    
+    .cardsContainer{
+        background: linear-gradient(0deg, rgb(0, 0, 0) 65%, rgb(20, 16, 0) 100%);
+    }
+
+    .main_section .card {
+        width: 10%;
+        height: fit-content;
+        border-radius: 15px;
+        background: #494949d4;
+        flex: 0 0 25%;
+        margin: 2%;
+        padding: 2%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 1s;
+    }
+
+    body{
+        background-color: black
+    }
+}
+
+/* PANTALLAS MEDIANAS ----------------------------------------------------------------------------------------------------------*/
+
+
+@media (max-width: 768px) {
+    
+    .main_section .title {
+        height: 19vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        transition: 1s;
+    }
+    
+    .main_section .title:hover {
+        height: 19vw;
+    
+    }
+    
+    .title h1 {
+        text-transform: uppercase;
+        font-size: 3rem;
+        color: white;
+        font-weight: 100;
+        transition: 1s;
+    }
+    
+    .title h1:hover {
+        transform: scale(100%);
+    }
+
+    body {
+        background-color: black;
+        /* position: relative;
+        padding-bottom: 3em;
+        */
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        background-size:25%;
+        background-position: center -40%;
+        background-repeat: no-repeat;
+    }
+
+    .info-container {  
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 90vw;
+        background-color: rgb(18, 18, 18);
+        zoom: 1;
+        filter: alpha(opacity=90);
+        opacity: 0.6;
+        border-radius: 2vw;
+        padding: 2vw;
+        margin: 3vw;
+        color: white;
+        z-index: 1;
+        animation: bounce 1.5s infinite;
+        justify-self: center;
+        height: 80vw;
+        font-size: 5.5vw;
+        align-self: center;
+    }
+    
+    p {
+        font-size: 5.5vw;
+        text-align: center;
+        color: rgb(255, 255, 255);
+    }
+}
+
 
 

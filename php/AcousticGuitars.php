@@ -1,3 +1,46 @@
+<?php 
+
+session_start();
+
+include('../server/connection.php');
+
+if(isset($_GET['page_no']) && $_GET['page_no'] != '') {
+    $page_no = $_GET['page_no'];
+
+} else {
+    // if user just entered the page 
+    $page_no = 1;
+}
+// return nro of products 
+$stmt1 = $conn->prepare("SELECT COUNT(*) AS total_records FROM products WHERE product_category='acustic'");
+$stmt1->execute();
+$stmt1->bind_result($total_records);
+$stmt1->store_result();
+$stmt1->fetch();
+
+// products per page
+
+$total_records_per_page = 8;
+
+$offset = ($page_no-1) * $total_records_per_page;
+
+$previous_page = $page_no-1;
+$next_page = $page_no+ 1;
+
+$adjacents = '2';
+
+$total_no_of_pages = ceil( $total_records / $total_records_per_page );
+
+// get all products
+
+$stmt = $conn->prepare("SELECT * FROM products WHERE product_category='acustic' LIMIT $offset,$total_records_per_page");
+
+$stmt->execute();
+
+$featured_products =  $stmt->get_result();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +65,6 @@
             <h1>Acoustic</h1>
         </div>
 
-        <?php include('../server/get_featured_products_acustic.php')?>
-
         <div class="cardsContainer">
             <?php while($row= $featured_products->fetch_assoc()) {?>
                 <div class="card"> 
@@ -38,6 +79,37 @@
                     </a>
                 </div>
             <?php } ?>
+        </div>
+
+        <div class="pagination:container">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    
+                    <li class="page-item <?php if($page_no<=1) {echo 'disable';} ?>">
+                        <a class="page-link" href="<?php if($page_no<=1){echo '#';} else { echo '?page_no='.($page_no-1); } ?>" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <li class="page-item"><a class="page-link" href="?page_no=1">1</a></li>
+                    <?php if($page_no>1) { ?>
+                    <li class="page-item"><a class="page-link" href="?page_no=2">2</a></li>
+                    <?php } ?>
+
+                    <?php if($page_no>= 3) { ?>
+                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="<?php echo "?page_no=".$page_no; ?>"> <?php echo $page_no;?></a></li>
+                    <?php } ?>
+
+                    <li class="page-item <?php if($page_no>= $total_no_of_pages) {echo 'disable';} ?>">
+                        <a class="page-link" href="<?php if($page_no>= $total_no_of_pages){echo '#';} else { echo '?page_no='.($page_no+1); } ?>" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </nav>
         </div>
     </section>
 <?php  
