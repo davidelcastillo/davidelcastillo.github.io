@@ -1,0 +1,121 @@
+footer {
+    width: 45w;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+    background: black;
+    /* position: absolute;
+    padding: 1em 0; */
+    margin-top: auto;
+}
+
+footer img {
+    height: 8%;
+    width: 8%;
+}
+
+footer .footerImageContainer {
+    text-align: center;
+    width: 100vw !important;
+    height: auto;
+    max-width: 100%;
+    max-height: fit-content !important;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
+    /*padding-bottom: 4.6%;*/
+    padding-left: 5%;
+}
+
+.footerInfoContainer {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    font-size: 2rem;
+    position: relative;
+}
+
+.footerEtiquetasA a {
+    text-decoration: none;
+    font-size: 1.2vw;
+    color: white;
+    width: fit-content;
+    text-align: justify;
+    letter-spacing: 1.8px;
+    line-height: 2.8vh;
+    vertical-align: middle;
+}
+
+.containerLogos {
+    color: white;
+    align-items: center;
+
+}
+
+.containerLogos i {
+    font-size: 1.5vw;
+}
+
+.containerLogos a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+    font-size: 1.5vw; 
+}
+
+.containerLogos a:hover {
+    color: #626161;
+}
+
+
+.footerMail {
+    color: white;
+    align-items: center;
+}
+
+.footerMail i {
+    font-size: 1.5vw;
+}
+
+@media (max-width: 768px) {
+    footer {
+        height: 12vh;
+    }
+
+    .footerInfoContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 6.2vw;
+    }
+
+    .containerLogos i {
+        margin: 0;
+        font-size: 2vh;
+    }
+
+    .footerMail i {
+        margin: 0;
+        font-size: 2vh;
+    }
+
+    .footerEtiquetasA a {
+        font-size: 2.5vw;
+        margin: 0;
+    }
+
+    footer .footerImageContainer {
+        padding-left: 0;
+        padding-bottom: 2%;
+    }
+
+    .Gibsonfooter img {
+        height: 4vh;
+        width: 12vw;
+    }
+
+}

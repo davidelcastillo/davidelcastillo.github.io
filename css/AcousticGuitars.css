@@ -59,11 +59,13 @@ html {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-right: 50vw;
 }
 
 .contenedorInfoNavbar {
     height: 10vh;
-
+    justify-content: space-between;
+    margin-right: 3vw;
 }
 
 .buttonNavbarRight {
@@ -77,8 +79,9 @@ html {
 }
 
 
-form {
-    width: 30%;
+.formNavbar {
+    width: 27vw;
+    margin-left: 5vw;
 }
 
 .inputSearchNavbar {
@@ -92,13 +95,24 @@ form {
 }
 
 .inputSearchNavbar:hover {
-    background-color: rgb(161, 160, 160);
+    background-color: rgb(60, 57, 57);
 
 }
 
-
 .formNavbar {
-    margin-right: 5%;
+    margin-right: 1.5%;
+}
+
+.search-btn{
+    width: 6vw;
+    transition: 1s;
+    background-color: transparent;
+    border: none;
+}
+
+.search-btn:hover{
+    color: brown;
+    background-color: transparent;
 }
 
 body {
@@ -223,7 +237,7 @@ body {
 
 }
 
-button {
+.buy-btn {
     width: 9em;
     height: 3em;
     border-radius: 30em;
@@ -238,7 +252,7 @@ button {
         -6px -6px 12px #ffffff; */
 }
 
-button::before {
+.buy-btn::before {
     content: '';
     width: 0;
     height: 3em;
@@ -252,7 +266,7 @@ button::before {
     z-index: -1;
 }
 
-button:hover::before {
+.buy-btn:hover::before {
     width: 9em;
 }
 

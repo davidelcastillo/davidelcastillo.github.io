@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="./asset/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -43,11 +44,11 @@
                         <a class="nav-link" href="./html/ContactUs.html">contact us</a>
                     </li>
                 </ul>
-                <form class="d-flex formNavbar" role="search">
-                    <input class="form-control me-2 inputSearchNavbar" type="search" aria-label="Search">
+                <form class="d-flex formNavbar" role="search" method="POST" action="./php/Search.php" >
+                    <input class="form-control me-2 inputSearchNavbar" type="search" aria-label="Search" name="search">
+                    <button class="search-btn" type="submit"><i class="bi bi-search buttonNavbarRight"></i></button>
                     <a href="./php/Login.php" class="btn" type="submit"><i class="bi bi-person buttonNavbarRight"></i> </a>
                     <a class="btn" type="submit" href="./php/Cart.php" ><i class="bi bi-cart buttonNavbarRight"></i>  </a>
-
                 </form>
             </div>
         </div>

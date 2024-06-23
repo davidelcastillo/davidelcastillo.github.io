@@ -1,0 +1,142 @@
+/*            Body    */
+
+body{
+    background-color: black;
+    /* position: relative;
+    padding-bottom: 3em;
+    */
+    display: flex;
+    flex-direction: column;
+    min-height: 150%;
+}
+
+/* .title h1{
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 9.8vh;
+    padding-bottom: 3%;
+    margin: 6%;
+} */
+
+/* .title {
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    letter-spacing: 1.8px;
+    line-height: 2.8vh;
+    vertical-align: middle;
+    font-size: 9.8vh;
+    padding-bottom: 3%;
+    margin: 4%;
+}
+
+.title h1{
+    text-align: center;
+    font-size: 8.8vh;
+    color: white;
+    font-weight: bold; 
+
+} */
+
+.main_section .title {
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-size: cover;
+    background-position: center 60%;
+    background-repeat: no-repeat;
+    transition: 1s;
+}
+
+.main_section .title:hover {
+    height: 30vw;
+
+}
+
+.title h1 {
+    text-transform: uppercase;
+    font-size: 5rem;
+    color: white;
+    font-weight: 200;
+    transition: 1s;
+}
+
+.title h1:hover {
+    transform: scale(200%);
+}
+
+.main_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    background-color: rgb(18, 18, 18);
+    zoom: 1;
+    filter: alpha(opacity=90);
+    opacity: 0.6;
+    border-radius: 2vw;
+    padding: 2vw;
+    margin: 3vw;
+    color: white;
+    z-index: 1;
+    animation: bounce 1.5s infinite;
+    justify-self: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+::-webkit-input-placeholder {
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+}
+
+@keyframes bounce {
+    0% {
+      tranform: translate(0, 4px);
+    }
+    50% {
+      transform: translate(0, 5px);
+    }
+}
+
+p {
+    font-size: 2.5vw;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.pay-btn {
+    background-color: rgb(83, 81, 81);
+    font-size: 2vw;
+    transition: 1s;
+    color: white;
+    justify-self: center;
+    align-self: center;
+    border-radius: 1vw;
+    border-color: transparent;
+    margin-top: 1vw;
+}
+
+.pay-btn:hover {
+    background-color: rgb(155, 151, 151);
+    height: 4.9vw;
+    font-size: 2.3vw;
+    color: #2a2929;
+}
+
+
+

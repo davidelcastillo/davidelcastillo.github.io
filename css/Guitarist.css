@@ -59,11 +59,13 @@ html {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-right: 50vw;
 }
 
 .contenedorInfoNavbar {
     height: 10vh;
-
+    justify-content: space-between;
+    margin-right: 3vw;
 }
 
 .buttonNavbarRight {
@@ -72,13 +74,14 @@ html {
     transition: 1s;
 }
 
-.buttonNavbarRight:hover{
+.buttonNavbarRight:hover {
     color: rgb(125, 0, 27);
 }
 
 
-form {
-    width: 30%;
+.formNavbar {
+    width: 27vw;
+    margin-left: 5vw;
 }
 
 .inputSearchNavbar {
@@ -91,14 +94,25 @@ form {
     margin-top: 2%;
 }
 
-.inputSearchNavbar:hover{
-    background-color: rgb(161, 160, 160);
-    
+.inputSearchNavbar:hover {
+    background-color: rgb(60, 57, 57);
+
 }
 
-
 .formNavbar {
-    margin-right: 5%;
+    margin-right: 1.5%;
+}
+
+.search-btn{
+    width: 6vw;
+    transition: 1s;
+    background-color: transparent;
+    border: none;
+}
+
+.search-btn:hover{
+    color: brown;
+    background-color: transparent;
 }
 
 /*            Body    */

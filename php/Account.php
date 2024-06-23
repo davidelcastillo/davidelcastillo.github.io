@@ -57,6 +57,19 @@ if(isset($_POST['change_password'])) {
 
 }
 
+//Get Orders
+if(isset($_SESSION['logged_in'])) {
+
+    $stmt = $conn->prepare("SELECT * FROM orders WHERE user_id=?");
+
+    $stmt->bind_param("i", $_SESSION["user_id"]);
+
+    $stmt->execute();
+
+    $orders =  $stmt->get_result();
+
+}
+
 ?>
 
 
@@ -69,53 +82,19 @@ if(isset($_POST['change_password'])) {
     <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <title>Account</title>
     <link rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="../asset/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/Account.css">
+    <link rel="stylesheet" href="../css/Header.css">
+    <link rel="stylesheet" href="../css/Footer.css">
 
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navbarContenedorAbajo">
-        <div class="container-fluid navbarContenedorArriba">
-            <div class="contenedorDivImagenNavbar">
-                <a href="../index.php">
-                    <img src="../img/logoGibson.png" alt="logo de Gibson" class="logoNavbar">
-                </a>  
-            </div>
-            <button class="navbar-toggler menuHamburguesaButton" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse contenedorInfoNavbar" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 contenedorLinksNavbar">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./ElectricGuitars.php">electric</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./AcousticGuitars.php">Acustic</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../html/AboutUs.html">about us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../html/Guitarist.html">guitarist</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../html/ContactUs.html">contact us</a>
-                    </li>
-
-                </ul>
-                <form class="d-flex formNavbar" role="search">
-                    <input class="form-control me-2 inputSearchNavbar" type="search" aria-label="Search">
-                    <a href="./Login.php" class="btn" type="submit"><i class="bi bi-person buttonNavbarRight"></i> </a>
-                    <a class="btn" type="submit" href="./Cart.php" ><i class="bi bi-cart buttonNavbarRight"></i>  </a>
-                </form>
-            </div>
-        </div>
-    </nav>
+<?php  
+    include('../layouts/header-php.php');
+?>
     <section class="main_section">
         <div class="title">
             <h1>
@@ -158,13 +137,13 @@ if(isset($_POST['change_password'])) {
 
                         <div class="mb-3">
                             <label for="password">Password</label>
-                            <input type="text" class="form-control" name="password" placeholder="Actual Password">
+                            <input type="text" class="form-control main-inpt" name="password" placeholder="Actual Password">
                             <p style="color:red"><?php if(isset($_GET['error'])){echo $_GET['error'];} ?></p>
                         </div>
 
                         <div class="mb-3">
                             <label for="password">New Password</label>
-                            <input type="text" class="form-control" name="new_password" placeholder="New Password">
+                            <input type="text" class="form-control main-inpt" name="new_password" placeholder="New Password">
                             <p style="color:red"><?php if(isset($_GET['error2'])){echo $_GET['error2'];} ?></p>
                         </div> 
                     <p style="color:green"><?php if(isset($_GET['message'])){echo $_GET['message'];} ?></p>
@@ -177,59 +156,39 @@ if(isset($_POST['change_password'])) {
                     <h4>
                         Your Orders
                     </h4>
-                    <ul style="padding-left:0;">
-                        <li >
-                            <div style="display: flex; align-items: center;">
-                                <h5>Product</h5>
-                            </div>
-                            <span class="price" style="font-size:3vw;">Date</span>
-                        </li>
-                        <li >
-                            <div style="display: flex; align-items: center;">
-                                <img src="../img/guitarra_v/v_negra.png" alt="">
-                                <h6>Product Name</h6>
-                            </div>
-                            <span class="price" style="font-size:2vw;">$ Price</span>
-                        </li>
-                    </ul>
+                    <table class="table table-dark table-borderless" style="background-color: rgba(0, 0, 0, 0); align-items: center;">
+                        <thead>
+                            <tr>
+                            <th scope="col"><h5>Order Id</h5></th>
+                            <th scope="col"><h5>Order Cost</h5></th>
+                            <th scope="col"><h5>Order Status</h5></th>
+                            <th scope="col"><h5>Order Date</h5></th>
+                            <th scope="col"><h5>Order Details</h5></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-active" >
+                            <?php while($row = $orders->fetch_assoc() ){ ?>
+                            <tr>
+                                <td><h6><?php echo $row['order_id']; ?></h6></td>
+                                <td><h6><?php echo $row['order_cost']; ?></h6></td>
+                                <td><h6><?php echo $row['order_status']; ?></h6></td>
+                                <td><h6><?php echo $row['order_date']; ?></h6></td>
+                                <td style="display: flex; text-align: center; align-items: center; justify-content: center; flex-direction: column;" >
+                                    <form method="POST" action="Order_details.php" class="detail-form">
+                                        <input type="hidden" value="<?php echo $row['order_status']; ?>" name="order_status">
+                                        <input type="hidden" value="<?php echo $row['order_id']; ?>" name="order_id">
+                                        <input class="btn detail-btn" type="submit" value="Details" name="order_detail">
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </section>
     </section>
-    <footer class="footerFatherContainer">
-        <div class="grupo">
-            <section class="footerImageContainer box">
-                <div class="Gibsonfooter">
-                    <img src="../img/logoGibson.png" alt="Logo Gibson">
-                </div>
-            </section>
-            <section class="footerInfoContainer box">
-                <div class="containerLogos">
-                    <a href="https://www.facebook.com/GibsonES/?brand_redir=98534165717" target="_blank">
-                        <i  class="bi bi-facebook"></i>
-                    </a>
-                    <a href="https://twitter.com/Gibson" target="_blank">
-                        <i class="bi bi-twitter"></i>
-                    </a>
-                    <a href="https://www.instagram.com/gibsonguitar" target="_blank">
-                        <i class="bi bi-instagram"></i>
-                    </a>
-                </div>
-                <div class="footerEtiquetasA">
-                    <a href="./ContactUs.html">Contact</a>
-                    <a href="./login.html">Sign in</a>
-                    <a href="./AboutUs.html">About us</a>
-                    <a href="../index.php">Menu</a>
-                </div>
-                <div class="footerMail">
-                    <i class="bi bi-envelope"></i>
-                </div>
-            </section>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+    <?php  
+        include('../layouts/footer-php.php');
+    ?>

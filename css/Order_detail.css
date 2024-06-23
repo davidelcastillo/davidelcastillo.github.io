@@ -125,10 +125,6 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 150%;
-    background-image: url(../img/Gibson_VBlue.png);
-    background-size:25%;
-    background-position: center -40%;
-    background-repeat: no-repeat;
 }
 
 .main_section .title {
@@ -136,15 +132,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/background_index.webp");
     background-size: cover;
-    background-position: center 60%;
+    background-position: center 20%;
     background-repeat: no-repeat;
     transition: 1s;
 }
 
 .main_section .title:hover {
-    height: 20vw;
+    height: 30vw;
 
 }
 
@@ -186,111 +182,37 @@ body{
 }  */
 
   /* form animation starts */
-.form {
-    background: rgb(55, 54, 54);
-    zoom: 1;
-    filter: alpha(opacity=90);
-    opacity: 0.9;
-    box-shadow: 0 20px 20px 0 rgba(90, 116, 148, 0.4);
-    border-radius: 12px;
-    width: 43vw;
-    height: 40vw;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    left: 0;
-    right: 0;
-    position: absolute;
-    z-index: 1;
-    animation: bounce 1.5s infinite;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+
+.info_section {  
     display: flex;
     flex-direction: column;
-}
-::-webkit-input-placeholder {
-    font-size: 1.3em;
-    color: white;
-}
-
-.inpt-container {
     justify-content: center;
     align-items: center;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 77%, rgb(32, 22, 1) 120%);
+} 
+
+
+.info_conteiner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70vw;
+    background-color: rgb(18, 18, 18);
+    zoom: 1;
+    filter: alpha(opacity=90);
+    opacity: 0.6;
+    border-radius: 2vw;
+    padding: 2vw;
+    margin: 3vw;
+    color: white;
+    z-index: 1;
+    animation: bounce 1.5s infinite;
     justify-self: center;
-    width: 35vw;
 }
 
-p {
-    margin: 0;
-    justify-self: start;
-    text-align: left;
-    margin-top: 1.3vw;
-    color: #a1a0a0;
-    font-size: 1.7vw;
-}
-
-.inp-main {
-    background-color: transparent;
-    transition: 1.5s;
-    width: 30vw;
-    margin: 2vw;
-    border-radius: 1vw;
-    border-color: #a1a0a0;
-    margin-right: 1vw;
-    margin-top: 0vw;
-    margin-left: 1%;
-    justify-self: left;
-    height: 3.5vw;
-}
-
-.inp-main:hover {
-    width: 32vw;
-    
-}
-
-.form-group i {
-    color: #a1a0a0;
-}
-
-hr {
-    color: #a1a0a0;
-}
-
-.formEntry {
-    display: block;
-    margin: 30px auto;
-    min-width: 300px;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    transition: all 0.5s ease 0s;
-    border: 1px solid white;;
-    background-color: transparent;
-    color: white;
-}
-
-.submit {
-    background-color: rgb(83, 81, 81);
-    font-size: 2vw;
-    transition: 1s;
-    color: white;
-    border: 0;
-    transition: 0.9s;
-    width: 14vw;
-    border-radius: 1.4vw;
-}
-
-.submit:hover {
-    box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
-    transform: translateY(-3px);
-    border: 5px solid #55524f;
-    background-color: rgb(155, 151, 151);
-    height: 4.9vw;
-    font-size: 2.3vw;
-    color: #2a2929;
-
+::-webkit-input-placeholder {
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
 }
 
 @keyframes bounce {
@@ -300,6 +222,72 @@ hr {
     50% {
       transform: translate(0, 5px);
     }
+}
+
+form {
+    width: 25vw;
+}
+
+h4 {
+    font-size: 3vw;
+    color: rgb(180, 179, 179);
+    font-weight: bold;
+    margin-left: 6%;
+    transition: 1s;
+    margin: 2vw;
+}
+
+.order_conteiner {
+    width: 90vw;
+    justify-content: center;
+    text-align: center;
+    height: fit-content;
+}
+
+img {
+    width: 16vw;
+}
+
+h6 {
+    font-size: 1.7vw;
+    margin-right: 2vw;
+}
+
+h5 {
+    font-size: 1.6vw;
+    align-self: center;
+}
+
+.detail-form {
+    width: fit-content; 
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pay-btn{
+    background-color: rgb(83, 81, 81);
+    font-size: 1.5vw;
+    transition: 1s;
+    color: white;
+    align-self: center;
+    border-radius: 1vw;
+    border-color: transparent;
+    height: fit-content;
+}
+
+.pay-btn:hover {
+    background-color: rgb(155, 151, 151);
+    height: 3.7vw;
+    font-size: 1.7vw;
+    color: #2a2929;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: row;
 }
 
 /* FOOTER*/

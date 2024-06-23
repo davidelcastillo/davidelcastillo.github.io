@@ -3,6 +3,12 @@
 session_start();
 include("./connection.php");
 
+if(!isset($_SESSION["logged_in"]) ) {
+    header('Location: ../php/Login.php?error=Please Login/Register to Place Order');
+    exit();
+}
+
+
 if(isset($_POST['Place_order']) ) {
 
     // get user info n' store user info in dbb
@@ -12,8 +18,8 @@ if(isset($_POST['Place_order']) ) {
     $address = $_POST['address'];
     $city = $_POST['city'];
     $order_cost = $_SESSION["total"];
-    $order_status = "on_hold";
-    $user_id = 1;
+    $order_status = "not paid";
+    $user_id = $_SESSION['user_id'];
     $order_date = date("Y-m-d H:i:s");
 
     $stmt = $conn->prepare("INSERT INTO orders (order_cost, order_status,user_id,user_phone,user_city,user_address,order_date)
@@ -21,7 +27,12 @@ if(isset($_POST['Place_order']) ) {
 
     $stmt->bind_param('ssiisss', $order_cost, $order_status, $user_id, $phone, $city, $address, $order_date);
 
-    $stmt->execute();
+    $stmt_status = $stmt->execute();
+
+    if(!$stmt_status) {
+        header('Location: ../php/Login.php');
+        exit();
+    }
 
     $order_id = $stmt->insert_id;
 

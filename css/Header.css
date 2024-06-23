@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+* {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+html {
+    height: 100%;
+    overflow-x: hidden;
+
+}
+
+.navbarContenedorAbajo {
+    padding: 0;
+    color: white;
+    background-color: rgb(7, 96, 108);
+}
+
+.navbarContenedorArriba {
+    background-color: rgb(27, 27, 27);
+    padding: 0;
+    margin: 0;
+    height: 10vh;
+
+    /* background-color: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
+}
+
+.navbarContenedorArriba a {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: 1s;
+}
+
+.navbarContenedorArriba a:hover {
+    color: rgb(138, 76, 76);
+}
+
+.contenedorDivImagenNavbar {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+}
+
+.logoNavbar {
+    height: auto;
+    width: 6vw;
+    margin: 5px;
+}
+
+.contenedorLinksNavbar {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 50vw;
+}
+
+.contenedorInfoNavbar {
+    height: 10vh;
+    justify-content: space-between;
+    margin-right: 3vw;
+}
+
+.buttonNavbarRight {
+    color: white;
+    font-size: 2rem;
+    transition: 1s;
+}
+
+.buttonNavbarRight:hover {
+    color: rgb(125, 0, 27);
+}
+
+
+.formNavbar {
+    width: 27vw;
+    margin-left: 5vw;
+}
+
+.inputSearchNavbar {
+    background-color: rgb(36, 36, 36);
+    border-color: white;
+    border-radius: 2cm;
+    transition: 1s;
+    color: black;
+    height: 40px;
+    margin-top: 2%;
+}
+
+.inputSearchNavbar:hover {
+    background-color: rgb(60, 57, 57);
+
+}
+
+.formNavbar {
+    margin-right: 1.5%;
+}
+
+.search-btn{
+    width: 6vw;
+    transition: 1s;
+    background-color: transparent;
+    border: none;
+}
+
+.search-btn:hover{
+    color: brown;
+    background-color: transparent;
+}
+
+@media (max-width: 991px) {
+    .navbarContenedorAbajo {
+        padding: 0;
+        color: white;
+        background-color: rgb(125, 0, 27);
+    } 
+
+    .contenedorLinksNavbar {
+        background-color: rgb(27, 27, 27);
+        position: absolute;
+        z-index: 1;
+        width: 100vw;
+        height: 50vh;
+    } 
+
+    /* .formNavbar input, i{
+        display: none;
+    }  */
+
+    .menuHamburguesaButton{
+        transition: 1s;
+        background-color: rgb(90, 90, 90);
+    }
+
+    .menuHamburguesaButton:hover{
+        border: none;
+        background-color: white;
+        /* border: ; */
+
+    }
+}
+
+@media (max-width: 580px) {
+    .logoNavbar {
+        width: 60%;
+    }
+}
+
+.contenedorLogoNavbar{
+    background-color: black;
+    border-radius: 50%;
+    width: 4%;
+}
+
+.navbarContainer1{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.navbarContainer2{
+   background-color: black;
+}
+
+.contenedorLogoNavbar img{
+    width: 100%;
+    height: auto;
+} 
