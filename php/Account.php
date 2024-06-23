@@ -102,6 +102,9 @@ if(isset($_SESSION['logged_in'])) {
             </h1>
         </div>
         <section class="info_section">
+        <?php if(isset($_GET['payment_message'])){ ?>
+        <p class="mt-5 text-center" style="font-size: 2.5vw; color:aliceblue ;"><?php echo $_GET['payment_message']; ?></p>
+        <?php } ?>
             <div class="info_conteiner">
                 <div class="account_details">
                     <h4>Account Info</h4>

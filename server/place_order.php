@@ -63,6 +63,8 @@ if(isset($_POST['Place_order']) ) {
 
     // unset( $_SESSION['cart'] );
 
+    $_SESSION['order_id'] = $order_id;
+
     // inform user whether is fine or problem
 
     header('location: ../php/Payment.php?order_status=order place successfully');
