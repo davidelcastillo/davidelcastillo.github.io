@@ -155,7 +155,7 @@ function calculateTotalCart() {
           <div class="Total_conteiner";">
             <div class="Sub_conteiner">
               <p class="mb-3">Subtotal</p>
-              <p class="mb-4">$ <?php echo $_SESSION['total']; ?></p>
+              <p class="mb-4">$ <?php if (isset($_SESSION['total'])) { echo $_SESSION['total']; }?></p>
             </div>
             
             <div class="Sub_conteiner">
@@ -166,7 +166,7 @@ function calculateTotalCart() {
 
             <div class="Total">
               <p class="mb-1">Total (tax included)</p>
-              <p class="mb-4">$<?php echo $_SESSION['total_tax']; ?></p>
+              <p class="mb-4">$<?php if (isset($_SESSION['total_tax'])) {echo $_SESSION['total_tax'];} ?></p>
             </div>
             
             <div class="checkout-container">
@@ -176,12 +176,6 @@ function calculateTotalCart() {
                 <?php } ?>
               </form>
             </div>
-            <!-- <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn">
-              <div class="d-flex justify-content-between">
-                <span>Checkout   $</span>
-                <span><?php echo $_SESSION['total_tax']; ?></span>
-              </div>
-            </button> -->
           </div>     
         </section>
     </section>
