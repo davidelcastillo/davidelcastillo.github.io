@@ -93,7 +93,7 @@ $featured_products =  $stmt->get_result();
                     </li>
 
                     <li class="page-item"><a class="page-link" href="?page_no=1">1</a></li>
-                    <?php if($page_no>1) { ?>
+                    <?php if($total_no_of_pages>1) { ?>
                     <li class="page-item"><a class="page-link" href="?page_no=2">2</a></li>
                     <?php } ?>
 

@@ -37,6 +37,25 @@
             document.getElementById('main-image').src = src;
         }
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchIcon = document.getElementById('searchIcon');
+        const searchInput = document.getElementById('searchInput');
+
+        searchIcon.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevenir el envío del formulario
+            if (window.innerWidth <= 580) { // Solo para dispositivos móviles
+                searchInput.classList.toggle('active');
+                if (searchInput.classList.contains('active')) {
+                    searchInput.focus(); // Poner el foco en el input cuando se muestra
+                } else {
+                    searchInput.value = ''; // Limpiar el input cuando se oculta
+                }
+            }
+        });
+    });
+    </script>
+
 </body>
 
 </html>
