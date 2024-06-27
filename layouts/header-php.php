@@ -19,7 +19,7 @@
                         <a class="nav-link" href="../html/AboutUs.html">about us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/Guitarist.html">guitarist</a>
+                        <a class="nav-link" href="../html/Records.html">records</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../html/ContactUs.html">contact us</a>

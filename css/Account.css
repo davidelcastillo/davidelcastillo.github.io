@@ -329,7 +329,7 @@ h5 {
         z-index: 1;
         animation: bounce 1.5s infinite;
         justify-self: center;
-        height: 100vw;
+        height: fit-content;
     }
     
     h4 {

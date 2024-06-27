@@ -43,7 +43,7 @@
                 </ul>
             </div>
             <div class="d-flex formNavbar">
-                <form class="d-flex" role="search" method="POST" action="./Search.php" >
+                <form class="d-flex" role="search" method="POST" action="../php/Search.php" >
                     <input class="form-control me-2 inputSearchNavbar" type="search" aria-label="Search" name="search" id="searchInput">
                     <button class="search-btn" type="submit" id="searchIcon" ><i class="bi bi-search buttonNavbarRight"></i></button>
                 </form>
@@ -125,25 +125,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous">
     </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchIcon = document.getElementById('searchIcon');
-        const searchInput = document.getElementById('searchInput');
-
-        searchIcon.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevenir el envío del formulario
-            if (window.innerWidth <= 580) { // Solo para dispositivos móviles
-                searchInput.classList.toggle('active');
-                if (searchInput.classList.contains('active')) {
-                    searchInput.focus(); // Poner el foco en el input cuando se muestra
-                } else {
-                    searchInput.value = ''; // Limpiar el input cuando se oculta
-                }
-            }
-        });
-    });
-    </script>
-    
 </body>
 
 </html>

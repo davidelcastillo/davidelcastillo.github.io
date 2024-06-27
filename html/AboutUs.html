@@ -34,7 +34,7 @@
                         <a class="nav-link" href="./AboutUs.html">about us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./Guitarist.html">guitarist</a>
+                        <a class="nav-link" href="./Records.html">records</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./ContactUs.html">contact us</a>
@@ -152,7 +152,7 @@
                     <a href="https://www.facebook.com/GibsonES/?brand_redir=98534165717" target="_blank">
                         <i  class="bi bi-facebook"></i>
                     </a>
-                    <a href="https://twitter.com/Gibson" target="_blank">
+                    <a href="https://twitter.com/gibsonguitar" target="_blank">
                         <i class="bi bi-twitter"></i>
                     </a>
                     <a href="https://www.instagram.com/gibsonguitar" target="_blank">
@@ -174,24 +174,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchIcon = document.getElementById('searchIcon');
-        const searchInput = document.getElementById('searchInput');
-        
-        searchIcon.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevenir el envío del formulario
-            if (window.innerWidth <= 580) { // Solo para dispositivos móviles
-                searchInput.classList.toggle('active');
-                if (searchInput.classList.contains('active')) {
-                    searchInput.focus(); // Poner el foco en el input cuando se muestra
-                } else {
-                    searchInput.value = ''; // Limpiar el input cuando se oculta
-                }
-            }
-        });
-    });
-    </script>
 </body>
 
 </html>
