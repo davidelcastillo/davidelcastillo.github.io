@@ -6,7 +6,9 @@ include("./connection.php");
 if(!isset($_SESSION["logged_in"]) ) {
     header('Location: ../php/Login.php?error=Please Login/Register to Place Order');
     exit();
-}else{
+}
+
+else{
     if(isset($_POST['Place_order']) ) {
 
         // get user info n' store user info in dbb
@@ -71,7 +73,5 @@ if(!isset($_SESSION["logged_in"]) ) {
     
     }
 }
-
-
 
 ?>
