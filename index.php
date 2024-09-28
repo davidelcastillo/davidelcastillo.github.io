@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/paginaPrincipal.css">
     <link rel="stylesheet" href="../css/Header.css">
     <link rel="stylesheet" href="../css/Footer.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -63,6 +64,27 @@
             </button>
         </div>
     </nav>
+
+    <?php  
+        if(isset($_GET['email_snt'])) { 
+    ?>
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: 'Sent Successfully' ,
+                showConfirmButton: false,
+                timer: 1500,
+                color: "#6f6d6b",
+                background: "#0f0e0b",
+            });
+        </script>
+
+    <?php  
+           unset($_SESSION['email_snt']);
+        } 
+    ?>
+
     <section class="main_section">
         <img src="./img/guitar_hover.png" class="main_img">
         <div class="title">
@@ -82,6 +104,7 @@
                 <img src="./img/guitarras_lp/lp_slash7.png"  alt="" />
             </div>
         </div>
+
         <div class="cont_p">
             <p>
                 Gibson Inc., the world’s most iconic guitar brand, has shaped the sounds of generations of musicians and music lovers across genres for more than 100 years. Founded in 1894 and headquartered in Nashville, TN, Gibson has a legacy of world-class craftsmanship, legendary music partnerships, and progressive product evolution that is unrivaled among musical instrument companies.

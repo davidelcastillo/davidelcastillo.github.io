@@ -85,7 +85,7 @@ if (isset($_POST["register"])) {
 
                 $mail->send();
 
-                header('location: Account.php?register_succes=You register succesfully');
+                header('location: Account.php?log_success=You register succesfully');
             }else{
     
                 header('location: Register.php?error=Cold´t create account');

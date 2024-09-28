@@ -15,9 +15,18 @@ if(isset($_GET['product_id'])) {
 
     $product =  $stmt->get_result();
 
+    // product details 
+
+    $stmt1 = $conn->prepare('SELECT * FROM products_details WHERE product_id = ?');
+    $stmt1->bind_param('i', $product_id);
+
+    $stmt1->execute();
+
+    $product_details =  $stmt1->get_result();
+
     //no product id was givven
 } else {
-    header('location: .//index.php');
+    header('location: ../index.php');
 }
 
 ?>
@@ -48,7 +57,7 @@ if(isset($_GET['product_id'])) {
             <h1>Buy</h1>
         </div>
         <?php while($row = $product->fetch_assoc()){ ?>
-            
+                <?php $row_detail = $product_details->fetch_assoc() ?>
                 <div class="product-page">
                     <div class="product-image-section">
                         <div class="product-images">
@@ -72,16 +81,20 @@ if(isset($_GET['product_id'])) {
 
                     <div class="product-details-section">
                         <h2><?php echo $row['product_name']; ?></h2>
+                        <hr>
                         <div class="product-options">
+                            <div class="color">
+                                <label>Color</label>
+                                <img src="<?php echo $row_detail['product_color']; ?>" alt="">
+                            </div>
                             <div class="option">
-                                <hr>
                                 <label>Handedness</label>
                                 <select>
                                     <option>Right</option>
                                     <option>Left</option>
                                 </select>
                             </div>
-                        </div>                        
+                        </div>                          
                         <hr>
                         <div class="product-price">
                             <h3>$ <?php echo $row['product_price']; ?></h3>
@@ -104,6 +117,84 @@ if(isset($_GET['product_id'])) {
                     </div>    
                 </div>
             
+        
+
+        <div class="details_section">
+            <hr>
+            <div class="tabs">
+                <button class="tablinks active" onclick="openTab(event, 'Body')">BODY</button>
+                <button class="tablinks" onclick="openTab(event, 'Neck')">NECK</button>
+                <button class="tablinks" onclick="openTab(event, 'Hardware')">HARDWARE</button>
+                <button class="tablinks" onclick="openTab(event, 'Electronics')">ELECTRONICS</button>
+                <button class="tablinks" onclick="openTab(event, 'Miscellaneous')">MISCELLANEOUS</button>
+            </div>
+
+            <div id="Body" class="tabcontent active">
+                <div class="specs">
+                    <div>
+                        <p><strong>Body Style</strong><br><?php echo $row_detail['product_bodystyle']; ?></p>
+                        <p><strong>Top</strong><br><?php echo $row_detail['product_top']; ?></p>
+                        <p><strong>Body Shape</strong><br><?php echo $row_detail['product_bodyshape']; ?></p>
+                    </div>
+                    <div>
+                        <p><strong>Body Material</strong><br><?php echo $row_detail['product_bodymaterial']; ?></p>
+                        <p><strong>Body Finish</strong><br><?php echo $row_detail['product_finish']; ?></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Neck" class="tabcontent">
+                <div class="specs">
+                    <div>
+                        <p><strong>Profile</strong><br><?php echo $row_detail['product_profile']; ?></p>
+                        <p><strong>Scale Length</strong><br><?php echo $row_detail['product_lenght']; ?></p>
+                        <p><strong>Neck Material</strong><br><?php echo $row_detail['product_neckmaterial']; ?></p>
+                    </div>
+                    <div>
+                        <p><strong>Fingerboard Radius</strong><br><?php echo $row_detail['product_fingerboard']; ?></p>
+                        <p><strong>Nut Material</strong><br><?php echo $row_detail['product_nutmaterial']; ?></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Hardware" class="tabcontent">
+                <div class="specs">
+                    <div>
+                        <p><strong>Finish</strong><br><?php echo $row_detail['product_finish']; ?></p>
+                        <p><strong>Strap Buttons</strong><br><?php echo $row_detail['product_strapbuttons']; ?></p>
+                        <p><strong>Switch Tip</strong><br><?php echo $row_detail['product_switchtip']; ?></p>
+                    </div>
+                    <div>
+                        <p><strong>Bridge</strong><br><?php echo $row_detail['product_brige']; ?></p>
+                        <p><strong>Switch washer</strong><br><?php echo $row_detail['product_switchwasher']; ?></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Electronics" class="tabcontent">
+                <div class="specs">
+                    <div>
+                        <p><strong>Neck Pickup</strong><br><?php echo $row_detail['product_neckpickup']; ?></p>
+                        <p><strong>Pickup Selector</strong><br><?php echo $row_detail['product_pickupselector']; ?></p>
+                        <p><strong>Output Jack</strong><br><?php echo $row_detail['product_outputJack']; ?></p>
+                    </div>
+                    <div>
+                        <p><strong>Bridge Pickup</strong><br><?php echo $row_detail['product_bridgepickup']; ?></p>
+                        <p><strong>Controls</strong><br><?php echo $row_detail['product_controls']; ?></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Miscellaneous" class="tabcontent">
+                <div class="specs">
+                    <div>
+                        <p><strong>Strings Gauge</strong><br><?php echo $row_detail['product_stringgauge']; ?></p>
+                        <p><strong>Case</strong><br><?php echo $row_detail['product_case']; ?></p>
+                        <p><strong>Accessories</strong><br><?php echo $row_detail['product_accessories']; ?></p>
+                    </div>
+                </div>
+            </div>
+        
         <?php }?>
 
         <div class="video_section">

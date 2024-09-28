@@ -19,7 +19,7 @@ if(isset($_GET["logout"])) {
     }
 }
 
-if(isset($_POST['change_password'])) {
+if(isset($_POST['change_password'])) { 
 
     $password = $_POST['password'];
     $new_password = $_POST['new_password'];
@@ -46,7 +46,7 @@ if(isset($_POST['change_password'])) {
             $stmt2->bind_param('ss', md5($new_password), $_SESSION['user_email']);
             
             if($stmt2->execute()){
-                header('location: Account.php?message=password has been updated succesfully');
+                header('location: Account.php?message=Password has been updated succesfully');
             }else {
                 header('location: Account.php?error2=Could´t update password');
             }
@@ -89,6 +89,7 @@ if(isset($_SESSION['logged_in'])) {
     <link rel="stylesheet" href="../css/Account.css">
     <link rel="stylesheet" href="../css/Header.css">
     <link rel="stylesheet" href="../css/Footer.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -102,14 +103,43 @@ if(isset($_SESSION['logged_in'])) {
             </h1>
         </div>
         <section class="info_section">
-        <?php if(isset($_GET['payment_message'])){ ?>
-        <p class="mt-5 text-center" style="font-size: 2.5vw; color:aliceblue ;"><?php echo $_GET['payment_message']; ?></p>
+
+        <?php 
+            if(isset($_GET['payment_message'])) { 
+        ?>
+                <script>
+                    Swal.fire({
+                        icon: "success",
+                        title: "<?php echo $_GET['payment_message'];  ?>",
+                        color: "#6f6d6b",
+                        background: "#0f0e0b"
+                    });
+                </script>    
+
         <?php } ?>
             <div class="info_conteiner">
                 <div class="account_details">
                     <h4>Account Info</h4>
-                    <p style="color:green"><?php if(isset($_GET['register_succes'])){echo $_GET['register_succes'];} ?></p>
-                    <p style="color:green"><?php if(isset($_GET['login_success'])){echo $_GET['login_success'];} ?></p>
+                    <?php 
+                        if(isset($_GET['log_success'])) { 
+                    ?>
+                            <script>
+                                Swal.fire({
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: " <?php echo $_GET['log_success']; ?> ",
+                                    showConfirmButton: false,
+                                    timer: 1500,
+                                    color: "#6f6d6b",
+                                    background: "#0f0e0b",
+
+                                });
+                            </script>
+                    <?php 
+                        }
+                    ?>
+
+
                     <form>
                         <div class="mb-3">
                         <label for="name">Name : <?php if(isset($_SESSION['user_name'])) {echo $_SESSION['user_name'];} ?> </label>
@@ -149,7 +179,20 @@ if(isset($_SESSION['logged_in'])) {
                             <input type="text" class="form-control main-inpt" name="new_password" placeholder="New Password">
                             <p style="color:red"><?php if(isset($_GET['error2'])){echo $_GET['error2'];} ?></p>
                         </div> 
-                    <p style="color:green"><?php if(isset($_GET['message'])){echo $_GET['message'];} ?></p>
+                    <?php 
+                        if(isset($_GET['message'])){
+                    ?>
+                    <script>
+                        Swal.fire({
+                            icon: "success",
+                            title: "<?php echo $_GET['message'] ; ?>",
+                            color: "#6f6d6b",
+                            background: "#0f0e0b"
+                        });
+                    </script>
+
+                    <?php } ?>
+
                     <input type="submit" class="btn checkout-btn" value="Change Password" name="change_password">
                     </form>
                 </div>

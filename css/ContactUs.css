@@ -10,7 +10,7 @@ body{
     flex-direction: column;
     min-height: 150%;
     background-image: url(../img/sg_fondo.png);
-    background-size:48%;
+    background-size:58%;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -20,7 +20,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     background-size: cover;
     background-position: center 60%;
     background-repeat: no-repeat;
@@ -72,9 +71,9 @@ body{
   /* form animation starts */
 .form {
     background: rgb(55, 54, 54);
-    zoom: 1;
+    /* zoom: 1;
     filter: alpha(opacity=90);
-    opacity: 0.9;
+    opacity: 0.9; */
     box-shadow: 0 20px 20px 0 rgba(90, 116, 148, 0.4);
     border-radius: 12px;
     width: 45vw;

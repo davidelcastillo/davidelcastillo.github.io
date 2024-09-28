@@ -1,7 +1,7 @@
 
 body {
     background-color: rgb(0, 0, 0);
-    background-image: url("../img/background_paginaPrincip.png");
+    /* background-image: url("../img/background_paginaPrincip.png"); */
     background-size: cover;
     background-position: center -160%;
     background-repeat: no-repeat;
@@ -69,6 +69,7 @@ body {
     padding: 30px 0 15vh;
     white-space: nowrap;
     position: relative;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 45%, rgb(17, 17, 17) 100%);
 }
 
 .slider {
@@ -147,7 +148,7 @@ section p {
     }
 
     body {
-        background-image: url(../img/background_mobile.png);
+        /* background-image: url(../img/background_mobile.png); */
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;

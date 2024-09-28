@@ -35,7 +35,7 @@ if (isset($_POST['login_btn'])) {
             $_SESSION['user_phone'] = $user_phone;
             $_SESSION['logged_in'] = true;
 
-            header('location: Account.php?login_success=logged successfull');
+            header('location: Account.php?log_success=Logged Successfull');
         }else {
             // error 
             header('location: Login.php?error=There is no account with this email');
