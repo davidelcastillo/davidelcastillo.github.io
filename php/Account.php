@@ -1,13 +1,10 @@
 <?php
-
 session_start();
 include("../server/connection.php");
-
 if(!isset($_SESSION["logged_in"])) {
     header('location: ./Login.php');
     exit;
 }
-
 if(isset($_GET["logout"])) {
     if (isset($_SESSION["logged_in"])) {
         unset( $_SESSION["logged_in"] );
@@ -18,61 +15,40 @@ if(isset($_GET["logout"])) {
         exit;
     }
 }
-
 if(isset($_POST['change_password'])) { 
-
     $password = $_POST['password'];
     $new_password = $_POST['new_password'];
-
     if (strlen($new_password) < 6) {
         header('location: Account.php?error2=password must be at least 6 characters');
     }else {
-
         $stmt1 = $conn->prepare('SELECT user_password FROM users WHERE user_email = ?');
         $stmt1->bind_param('s', $_SESSION['user_email']);
         $stmt1->execute();
         $stmt1->bind_result($pss);
         $stmt1->store_result();
         $stmt1->fetch();
-
         if ($pss != md5($password)) {
-    
-            header('location: Account.php?error=Wrong Password');
-    
+            header('location: Account.php?error=Wrong Password');   
         }else {
-
             $stmt2 = $conn->prepare('UPDATE users SET user_password = ?
                                     WHERE user_email = ?'); 
-            $stmt2->bind_param('ss', md5($new_password), $_SESSION['user_email']);
-            
+            $stmt2->bind_param('ss', md5($new_password), $_SESSION['user_email']);         
             if($stmt2->execute()){
                 header('location: Account.php?message=Password has been updated succesfully');
             }else {
                 header('location: Account.php?error2=Could´t update password');
             }
-
         }
-
     }
-
 }
-
 //Get Orders
 if(isset($_SESSION['logged_in'])) {
-
     $stmt = $conn->prepare("SELECT * FROM orders WHERE user_id=?");
-
     $stmt->bind_param("i", $_SESSION["user_id"]);
-
     $stmt->execute();
-
     $orders =  $stmt->get_result();
-
 }
-
 ?>
-
-
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
