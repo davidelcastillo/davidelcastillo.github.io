@@ -59,45 +59,29 @@ $featured_orders =  $stmt->get_result();
             </header>
             <section class="main-tble">
             <?php 
-                if(isset($_GET['edit_scc'])) { 
+                if(isset($_GET['success'])) { 
             ?>
                     <script>
                         Swal.fire({
                             icon: "success",
-                            title: "Order has been updated successfully",
+                            title: 'Success',
+                            text: '<?php echo htmlspecialchars($_GET['success'], ENT_QUOTES, 'UTF-8'); ?>',
                             color: "#6f6d6b",
                             background: "#0f0e0b"
                         });
                     </script>    
 
-            <?php }else if(isset($_GET['edit_fail'])) { ?>
+            <?php } else if (isset($_GET['error'])) { ?>
                     <script>
                         Swal.fire({
                             icon: "error",
-                            title: "Error, Try again",
+                            title: 'Error',
+                            text: '<?php echo htmlspecialchars($_GET['error'], ENT_QUOTES, 'UTF-8'); ?>',
                             color: "#6f6d6b",
                             background: "#0f0e0b"
                         });
                     </script>   
-            <?php }else if(isset($_GET['deleted'])) { ?>
-                    <script>
-                        Swal.fire({
-                            icon: "success",
-                            title: "Deleted successfully",
-                            color: "#6f6d6b",
-                            background: "#0f0e0b"
-                        });
-                    </script>   
-            <?php }else if(isset($_GET['deleted_fail'])) { ?>
-                    <script>
-                        Swal.fire({
-                            icon: "error",
-                            title: "Couldn't deleted",
-                            color: "#6f6d6b",
-                            background: "#0f0e0b"
-                        });
-                    </script>   
-            <?php } ?>
+            <?php }  ?>
                 <div class="table_conteiner">
                     <table class="table table-borderless table-dark">
                         <thead class="table-dark">
@@ -107,8 +91,8 @@ $featured_orders =  $stmt->get_result();
                                 <th scope="col" class="table_title price-cell">Order Cost</th>
                                 <th scope="col"class="table_title price-cell">Order Date</th>
                                 <th scope="col"class="table_title price-cell">User Id</th>
-                                <th scope="col"class="table_title price-cell">User Phone</th>
                                 <th scope="col"class="table_title price-cell">User Address</th>
+                                <th scope="col" class="table_title">Details</th>
                                 <th scope="col" class="table_title">Edit</th>
                                 <th scope="col" class="table_title">Delete</th>
                             </tr>
@@ -148,13 +132,13 @@ $featured_orders =  $stmt->get_result();
 
                                 <td style="align-items: center;">
                                     <div class="Details_conteiner" >
-                                    <p class="mb-0"><?php echo $order['user_phone'] ?></p>
+                                    <p class="mb-0"><?php echo $order['user_address'] ?></p>
                                     </div>
                                 </td>
 
                                 <td style="align-items: center;">
                                     <div class="Details_conteiner" >
-                                    <p class="mb-0"><?php echo $order['user_address'] ?></p>
+                                    <p class="mb-0"> <a class="btn img-btn"  href="order_details.php?order_id=<?php echo $order['order_id'] ?>">Details</a> </p>
                                     </div>
                                 </td>
 

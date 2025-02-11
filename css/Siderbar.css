@@ -37,6 +37,8 @@ body {
     padding: 20px;
     border-top-right-radius: 2vw;
     border-bottom-right-radius: 2vw;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+    height: 100vh; /* Ocupa todo el alto de la ventana */
 }
 
 .contLogo {
@@ -69,4 +71,15 @@ body {
 
 .sidebar ul li a:hover {
     color: #ffffff;
+}
+
+a {
+    color: #b18787;
+    text-decoration: none;
+    font-size: 1.4vw;
+    display: block;
+}
+
+a:hover {
+    color: #b46666;
 }

@@ -23,26 +23,6 @@ header h1 {
     margin-bottom: 30px;
 }
 
-.form {
-    background: rgb(55, 54, 54);
-    /* zoom: 1;
-    filter: alpha(opacity=90);
-    opacity: 0.9; */
-    border-radius: 12px;
-    width: 45vw;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    left: 0;
-    right: 0;
-    position: absolute;
-    z-index: 1;
-    animation: bounce 1.5s infinite;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
 ::-webkit-input-placeholder {
     font-size: 1.3em;
     color: white;
@@ -139,6 +119,8 @@ label {
     transition: 0.9s;
     width: 14vw;
     border-radius: 1.4vw;
+    justify-self: center; /* Centra el botón horizontalmente */
+    align-self: center;   /* Centra el botón verticalmente */
 }
 
 .submit:hover {
@@ -148,4 +130,90 @@ label {
     background-color: rgb(155, 151, 151);
     font-size: 2.3vw;
     color: #2a2929;
+}
+
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    animation: bounce 1.5s infinite;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container {
+    max-width: 80vw;
+    margin: 50px auto;
+    background: rgb(56,60,60) !important;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Oculta el input original */
+.form-group input[type="file"] {
+    display: none;
+}
+
+/* Botón personalizado */
+.form-group label.upload-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #747575; /* Color azul */
+    color: rgb(37, 36, 36);
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px;
+}
+
+/* Hover para el botón */
+.form-group label.upload-btn:hover {
+    background-color: #4d5053; /* Azul más oscuro */
+    color: white;
+    transition: 0.9s;
+
+}
+
+/* Nombre del archivo */
+.file-name {
+    display: block;
+    font-size: 12px;
+    color: #ccc;
+    margin-top: 5px;
+    text-align: center;
+}
+
+select {
+    appearance: none; /* Elimina el estilo predeterminado del navegador */
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 8px; /* Esquinas redondeadas */
+    padding: 10px; /* Espaciado interno */
+    font-size: 12px; /* Tamaño de fuente */
+    width: 100%; /* Ajusta el ancho al contenedor */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+select:focus {
+    outline: none; /* Elimina el contorno predeterminado */
+    border-color: #06f; /* Borde azul al enfocar */
+    box-shadow: 0 0 5px rgba(0, 102, 255, 0.5); /* Sombra azul */
+}
+
+select option {
+    background-color: #222; /* Fondo de las opciones */
+    color: #fff; /* Color del texto */
 }

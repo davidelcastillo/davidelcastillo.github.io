@@ -4,8 +4,9 @@ if (!isset($_SESSION['admin_logged_in'])) {
     header('location: ../admin/login.php');
     exit();
 }
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,10 @@ if (!isset($_SESSION['admin_logged_in'])) {
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="../css/Siderbar.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <title>Dashboard</title>
+    <script type="text/javascript" src="../admin/js/charts.js">
+    </script>
 </head>
 <body>
 <?php  
@@ -45,66 +49,29 @@ if (!isset($_SESSION['admin_logged_in'])) {
                 }
             ?>
 
-            <section class="stats">
-                <div class="stat-card">
-                    <h3>Pageviews</h3>
-                    <p>50.8K</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Monthly Users</h3>
-                    <p>23.6K</p>
-                </div>
-                <div class="stat-card">
-                    <h3>New Users</h3>
-                    <p>756</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Subscriptions</h3>
-                    <p>2.3K</p>
-                </div>
-            </section>
-
+            <!-- Sección del gráfico dinámico -->
             <section class="charts">
-                <div class="total-revenue">
-                    <h3>Total Revenue</h3>
-                    <canvas id="revenueChart"></canvas>
+                <div class="filters">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" class="formEntry"  id="startDate">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" class="formEntry"  id="endDate">
+                    <button class="submit" onclick="validateCharts()">Aplicar</button>
                 </div>
-                <div class="recent-profits">
-                    <h3>Recent Profits</h3>
-                    <canvas id="profitsChart"></canvas>
+
+                <div class="chart-container">
+                    <div id="clientsPurchasesChart" class="chart"></div>
+                </div>
+
+                <div class="chart-container">
+                    <div id="monthlyProfitsChart" class="chart"></div>
+                </div>
+
+                <div class="chart-container">
+                    <div id="dailySalesChart" class="chart"></div>
                 </div>
             </section>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
-        const revenueChart = new Chart(ctxRevenue, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-                datasets: [{
-                    label: 'Revenue',
-                    data: [120, 190, 300, 500, 200, 300, 400],
-                    borderColor: 'rgba(108, 93, 211, 1)',
-                    backgroundColor: 'rgba(108, 93, 211, 0.2)',
-                }]
-            }
-        });
-
-        const ctxProfits = document.getElementById('profitsChart').getContext('2d');
-        const profitsChart = new Chart(ctxProfits, {
-            type: 'bar',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-                datasets: [{
-                    label: 'Profits',
-                    data: [100, 150, 250, 400, 180, 250, 350],
-                    backgroundColor: 'rgba(108, 93, 211, 0.8)',
-                }]
-            }
-        });
-    </script>
 </body>
 </html>

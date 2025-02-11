@@ -11,14 +11,16 @@ if (!isset($_SESSION['admin_logged_in'])) {
 
 if(isset($_GET['product_id'])) {
     $product_id = $_GET['product_id'];
-    $stmt = $conn->prepare("DELETE FROM products
-                                   WHERE product_id = ? ");
+    $stmt = $conn->prepare("CALL mov_n_delete_product(?);");
     $stmt->bind_param('i', $product_id);
     if($stmt->execute()) {
-        header( "Location: products.php?deleted = Deleted successfully" );
+        header( "Location: products.php?success=Deleted successfully" );
     } else {
-        header( "Location: products.php?deleted_fail = Couldn't deleated product" );
+        header( "Location: products.php?error=Couldn't deleated product" );
     }
+}else {
+    header("Location: products.php?error=Unauthorized access");
+    exit;
 }
 
 ?>

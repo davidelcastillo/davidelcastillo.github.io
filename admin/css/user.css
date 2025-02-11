@@ -205,3 +205,38 @@ th {
     border-color: transparent;
     border: 0;
 }
+
+.formEntry {
+    display: block;
+    margin: 30px auto;
+    min-width: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.5s ease 0s;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+}
+
+.submit {
+    background-color: rgb(83, 81, 81);
+    font-size: 2vw;
+    transition: 1s;
+    color: white;
+    border: 0;
+    transition: 0.9s;
+    width: 14vw;
+    border-radius: 1.4vw;
+    justify-self: center; /* Centra el botón horizontalmente */
+    align-self: center;   /* Centra el botón verticalmente */
+}
+
+.submit:hover {
+    box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+    transform: translateY(-3px);
+    border: 5px solid #55524f;
+    background-color: rgb(155, 151, 151);
+    font-size: 2.3vw;
+    color: #2a2929;
+}

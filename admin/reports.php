@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/Siderbar.css">
     <link rel="stylesheet" href="./css/reports.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Products</title>
+    <title>Reports</title>
 </head>
 <body>
 <?php  
@@ -32,7 +32,17 @@
                         });
                     </script>    
 
-            <?php }?>
+            <?php } else if (isset($_GET['error'])) { ?>
+                    <script>
+                        Swal.fire({
+                            icon: "error",
+                            title: 'Error',
+                            text: '<?php echo htmlspecialchars($_GET['error'], ENT_QUOTES, 'UTF-8'); ?>',
+                            color: "#6f6d6b",
+                            background: "#0f0e0b"
+                        });
+                    </script>   
+            <?php }  ?>
                 <div class="table_conteiner">
                     <form action="./reports/generate_report.php" method="GET">
                         <label for="report">Select Report Type : </label>
@@ -43,6 +53,15 @@
                             <option class="option" value="report_inactive_customers">Report Inactive Customers</option>
                             <option class="option" value="sales_by_month">Sales By Month</option>
                         </select>
+                        <div class="form-group">
+                            <label for="start_date">Start Date:</label>
+                            <input class="formEntry" type="date" id="start_date" name="start_date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="end_date">End Date:</label>
+                            <input class="formEntry" type="date" id="end_date" name="end_date" required>
+                        </div>
                         <button class="submit" type="submit">Generate PDF</button>
                     </form>
                 </div>

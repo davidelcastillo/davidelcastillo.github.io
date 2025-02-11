@@ -1,39 +1,57 @@
 <?php
 include('../server/connection.php');
 if (isset($_POST['update_images'])){
-
     $product_name = $_POST['product_name'];
     $product_id = $_POST['product_id'];
 
-    $image1 =$_FILES['img1'] ['tmp_name'];
-    $image2 =$_FILES['img2']['tmp_name'];
-    $image3 =$_FILES['img3']['tmp_name'];
-    $image4 =$_FILES['img4']['tmp_name'];
-    $image5 =$_FILES['img5']['tmp_name'];
-    $image6 =$_FILES['img6']['tmp_name'];
-    //$file_name = $_FILES['img1'] ['name'];
+    // Allowed file extensions
+    $allowedExtensions = ['jpeg', 'jpg', 'png'];
 
-    $image_name1 = $product_name."1.jpeg";
-    $image_name2 = $product_name."2.jpeg";
-    $image_name3 = $product_name."3.jpeg";
-    $image_name4 = $product_name."4.jpeg";
-    $image_name5 = $product_name."5.jpeg";
-    $image_name6 = $product_name."volt.jpeg";
+    // Verify each image
+    $images = ['img1', 'img2', 'img3', 'img4', 'img5', 'img6'];
+    $imageNames = []; // Array to store the names of the images to be moved
 
-    move_uploaded_file($image1,"../img/".$image_name1);
-    move_uploaded_file($image2,"../img/".$image_name2);
-    move_uploaded_file($image3,"../img/".$image_name3);
-    move_uploaded_file($image4,"../img/".$image_name4);
-    move_uploaded_file($image5,"../img/".$image_name5);
-    move_uploaded_file($image6,"../img/".$image_name6);
+    foreach ($images as $index => $imageKey) {
+        if (isset($_FILES[$imageKey]) && $_FILES[$imageKey]['error'] == 0) {
+            $fileTmp = $_FILES[$imageKey]['tmp_name'];
+            $fileName = $_FILES[$imageKey]['name'];
+            $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
+            // Validate file extension
+            if (!in_array($fileExt, $allowedExtensions)) {
+                header("Location: products.php?error=The file for {$imageKey} is not a valid format (allowed: jpeg, jpg, png)");
+                exit;
+            }
+
+            // Generate the new filename
+            $newFileName = $product_name . ($index + 1) . '.' . $fileExt;
+            $imageNames[$imageKey] = $newFileName;
+
+            // Move the file to the upload directory
+            $uploadPath = "../img/" . $newFileName;
+            if (!move_uploaded_file($fileTmp, $uploadPath)) {
+                header("Location: products.php?error=Failed to move the file for {$imageKey}");
+                exit;
+            }
+        } else {
+            header("Location: products.php?error=File for {$imageKey} not received or upload error occurred");
+            exit;
+        }
+    }
     $stmt = $conn->prepare("UPDATE products SET product_image_stand=?, product_image2=?, product_image3=?,
                                                     product_image4=?, product_image5=?, product_image1=? 
                                     WHERE product_id=?");
-    $stmt->bind_param('ssssssi', $image_name1, $image_name2, $image_name3, $image_name4, $product_id);
+    $stmt->bind_param(
+        'ssssssi', 
+        $image_names['img1'], $image_names['img2'], $image_names['img3'], 
+        $image_names['img4'], $image_names['img5'], $image_names['img6'], 
+        $product_id
+    );
     if ($stmt->execute()) {
     header('location: products.php?images_updated=Images have been updated successfully');
     }else{
     header('location: products.php?images_failed-Error occured, try again' );
     }
+} else {
+    header("Location: products.php?error=Unauthorized access");
 }

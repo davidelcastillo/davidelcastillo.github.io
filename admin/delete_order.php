@@ -18,9 +18,9 @@ if(isset($_GET['order_id'])) {
     $stmt = $conn->prepare("CALL mov_n_delete_order(?)");
     $stmt->bind_param('i', $order_id);
     if($stmt->execute()) {
-        header("Location: orders.php?deleted=Deleted successfully");
+        header("Location: orders.php?success=Deleted successfully");
     } else {
-        header("Location: orders.php?deleted_fail=Couldn't delete order");
+        header("Location: orders.php?error=Couldn't delete order");
     }
 }
 
